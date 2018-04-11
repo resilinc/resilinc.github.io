@@ -1,0 +1,68 @@
+<!doctype html>
+
+<html>
+<head>
+	<title>Trade Tariff Overview</title>
+	<script src="https://d3js.org/d3.v3.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+</head>
+
+<body>
+	<script type="text/javascript">
+		var width=3500,
+			height=3500;
+
+
+		var canvas=d3.select("body").append("svg")
+					.attr("height",height)
+					.attr("width",width)
+					.append("g")
+						.attr("transform","translate(0,0)");
+		var pack=d3.layout.pack()
+			.size([width-50,height-50])
+			.padding(5)
+			.value(function(d) {return d.size})
+		
+		d3.json("/data/chapter_json.txt",function(data)
+		{
+
+
+
+			var nodes=pack.nodes(data);
+			console.log(nodes)
+			var node=canvas.selectAll(".node")
+				.data(nodes)
+				.enter()
+				.append("g")
+					.attr("class","node")
+					.attr("transform",function(d) {return "translate("+(d.x)+","+(d.y)+")";})
+
+			node.append("circle")
+				.attr("r",function(d){return d.r;})
+				.attr("fill","steelblue")
+				.attr("opacity",0.25)
+				.attr("stroke","grey")
+				.attr("stroke-width","2")
+			
+			node.append("text")
+				.text(function(d){return d.name;})
+				.style("font-size",function(d){
+								if (d.depth>1)
+									{
+								return Math.min(2 * d.r, (2 * d.r - 8) / this.getComputedTextLength() * 12) + "px"; 
+									}
+									else
+								{return "0px";}
+						})
+				.attr("transform",function(d){return "translate("+((-d.r)+15)+","+15+")";})
+						
+
+		
+
+		})
+
+
+	</script>
+</body>
+</html>
