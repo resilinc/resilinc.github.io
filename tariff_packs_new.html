@@ -21,60 +21,18 @@
   text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, -1px 0 0 #fff, 0 -1px 0 #fff;
 }
 
-header {
-  font-size:150%;
-  font-family: Helvetica, Arial, sans-serif;
-  color: #fff;
-}
-
-body {
-  background-color: hsl(152,80%,80%)
-}
 .label,
 .node--root,
 .node--leaf {
   pointer-events: none;
 }
-  table.tableizer-table {
-    font-size: 120%;
-    border: 0px solid #CCC; 
-    font-family: Helvetica, Arial, sans-serif;
-  } 
-  .tableizer-table td {
-    padding: 4px;
-    margin: 3px;
-    border: 1px solid #CCC;
-  }
-  .tableizer-table th {
-    background-color: #6B92AF; 
-    color: #FFF;
-    font-weight: bold;
-  }
 
 </style>
-
+<svg width="2960" height="2960"></svg>
 <script src="https://d3js.org/d3.v4.min.js"></script>
-<title>Trade Tariff Overview</title>
-<header>
-  <h1>Analysis of Proposed Trade Tariffs on Global Supply Chains</h1>
-  <h2>Below chart breaks down the parts and products impacted by the proposed Trade Tariffs issued by the <b>Office of the United States Trade Representative</b> on April 6th 2018.  Please see <a href="https://assets.documentcloud.org/documents/4430282/Office-of-the-United-States-Trade-Representative.pdf"> Notice of Determination and Request for Public Comment Concerning Proposed Determination of Action Pursuant to Section 301</a> for the full list of items included in the current Tariffs.
-  </h2>
-  <h3>
 
-  </h3>
-  </header>
-  <table class="tableizer-table">
-<thead><tr class="tableizer-firstrow"><th>Date</th><th>Activity</th></tr></thead><tbody>
- <tr><td>April 23, 2018</td><td>Due date for filing requests and summary of expected testimony</td></tr>
- <tr><td>May 11, 2018</td><td>Due date for submission of written comments.</td></tr>
- <tr><td>May 15, 2018</td><td>Section 301 Committee public hearing</td></tr>
- <tr><td>May 22, 2018</td><td>Due date for submission of post-hearing rebuttal comments</td></tr>
-</tbody></table>
-<body>
-
-<div><svg width="2960" height="2960"></svg></div>
-</body>
 <script>
+
 var svg = d3.select("svg"),
     margin = 20,
     diameter = +svg.attr("width"),
